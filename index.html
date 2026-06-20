@@ -1,513 +1,91 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <meta name="description" content="Profesjonalne malowanie mieszkań i domów. Bezpłatna wycena, gwarancja jakości, konkurencyjne ceny.">
-  <meta name="theme-color" content="#0a2f7c">
-  <title>Tanie Malowanie | Profesjonalne malowanie wnętrz</title>
-  
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-<!-- BUBBLE BACKGROUND -->
-<div class="bubbles" id="bubbles"></div>
-
-<!-- PRELOADER -->
-<div id="preloader">
-  <div class="preloader-content">
-    <div class="preloader-ring"></div>
-    <div class="preloader-ring"></div>
-    <div class="preloader-ring"></div>
-    <div class="preloader-text">Tanie Malowanie</div>
-  </div>
-</div>
-
-<!-- CUSTOM CURSOR -->
-<div class="cursor"></div>
-<div class="cursor-follower"></div>
-
-<!-- SCROLL PROGRESS -->
-<div class="scroll-progress"></div>
-
-<!-- HEADER -->
-<header class="header" id="header">
-  <div class="container">
-    <div class="header-inner">
-      <div class="logo" data-aos="fade-right" data-aos-duration="600">
-        <div class="logo-icon">
-          <i class="fas fa-paint-brush"></i>
+<div class="swiper-wrapper">
+  <!-- Salon -->
+  <div class="swiper-slide">
+    <div class="gallery-card">
+      <div class="before-after">
+        <div class="before" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PRZED</span>
         </div>
-        <div class="logo-text">
-          Tanie <span>Malowanie</span>
-          <small>Mieszkań i Domów</small>
+        <div class="after" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PO</span>
         </div>
       </div>
-      
-      <nav class="nav">
-        <ul>
-          <li><a href="#home" class="nav-link active">Home</a></li>
-          <li><a href="#services" class="nav-link">Usługi</a></li>
-          <li><a href="#gallery" class="nav-link">Galeria</a></li>
-          <li><a href="#opinions" class="nav-link">Opinie</a></li>
-          <li><a href="#contact" class="nav-link">Kontakt</a></li>
-        </ul>
-      </nav>
-      
-      <div class="header-actions">
-        <a href="tel:+48730208853" class="phone-btn">
-          <i class="fas fa-phone-alt"></i>
-          <span>+48 730 208 853</span>
-        </a>
-        <button class="menu-toggle" id="menuToggle">
-          <span></span><span></span><span></span>
-        </button>
+      <div class="gallery-info">
+        <h4>Salon - Warszawa</h4>
+        <p>Pełna metamorfoza</p>
       </div>
-    </div>
-  </div>
-</header>
-
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <div class="mobile-menu-inner">
-    <ul>
-      <li><a href="#home">Strona główna</a></li>
-      <li><a href="#services">Usługi</a></li>
-      <li><a href="#gallery">Galeria</a></li>
-      <li><a href="#opinions">Opinie</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-    <div class="mobile-contacts">
-      <a href="tel:+48730208853"><i class="fas fa-phone"></i> +48 730 208 853</a>
-      <a href="mailto:Taniemalowaniepiaseczno@gmail.com"><i class="fas fa-envelope"></i> Taniemalowaniepiaseczno@gmail.com</a>
-    </div>
-  </div>
-</div>
-
-<!-- HERO SECTION -->
-<section class="hero" id="home">
-  <div class="hero-bg-animation"></div>
-  <div class="container">
-    <div class="hero-grid">
-      <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
-        <div class="hero-badge">
-          <span class="pulse-dot"></span>
-          Profesjonalne malowanie
-        </div>
-        <h1 class="hero-title">
-          Tanie <span class="gradient">Malowanie</span><br>
-          Mieszkań i Domów
-        </h1>
-        <p class="hero-text">
-          Profesjonalne malowanie wnętrz z gwarancją najniższej ceny. 
-          Ponad 500 zadowolonych klientów.
-        </p>
-        
-        <div class="hero-stats">
-          <div class="stat-item">
-            <div class="stat-number" data-count="520">0</div>
-            <div class="stat-label">Klientów</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="1280">0</div>
-            <div class="stat-label">Realizacji</div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number" data-count="99">0</div>
-            <div class="stat-label">% Zadowolenia</div>
-          </div>
-        </div>
-        
-        <div class="hero-buttons">
-          <button class="btn btn-primary btn-large" id="openFormBtn">
-            <i class="fas fa-calculator"></i> Bezpłatna wycena
-            <span class="btn-ripple"></span>
-          </button>
-          <a href="tel:+48730208853" class="btn btn-outline btn-large">
-            <i class="fas fa-phone-alt"></i> Zadzwoń teraz
-          </a>
-        </div>
-      </div>
-      
-      <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000">
-        <div class="floating-bubble bubble-1"></div>
-        <div class="floating-bubble bubble-2"></div>
-        <div class="floating-bubble bubble-3"></div>
-        <div class="hero-illustration">
-          <svg viewBox="0 0 500 450" fill="none">
-            <rect x="60" y="70" width="360" height="230" stroke="#0a2f7c" stroke-width="3" fill="none" rx="16"/>
-            <rect x="100" y="110" width="95" height="75" stroke="#0a2f7c" stroke-width="2.5" fill="none" rx="10"/>
-            <rect x="220" y="110" width="95" height="75" stroke="#0a2f7c" stroke-width="2.5" fill="none" rx="10"/>
-            <rect x="100" y="205" width="115" height="75" stroke="#0a2f7c" stroke-width="2.5" fill="none" rx="10"/>
-            <circle cx="360" cy="195" r="38" stroke="#0a2f7c" stroke-width="2.5" fill="none"/>
-            <path d="M190 45 L250 15 L310 45" stroke="#0a2f7c" stroke-width="3" fill="none" stroke-linecap="round"/>
-            <rect x="420" y="170" width="40" height="40" stroke="#0a2f7c" stroke-width="2" fill="none" rx="8"/>
-            <circle cx="145" cy="148" r="4" fill="#f5b042"/>
-            <circle cx="265" cy="148" r="4" fill="#f5b042"/>
-            <circle cx="155" cy="243" r="4" fill="#f5b042"/>
-          </svg>
-        </div>
-        <div class="floating-card card-1">
-          <i class="fas fa-check-circle"></i> Gwarancja jakości
-        </div>
-        <div class="floating-card card-2">
-          <i class="fas fa-clock"></i> Realizacja 24h
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES SECTION -->
-<section class="services" id="services">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-badge">Co oferujemy</span>
-      <h2 class="section-title">Nasze <span class="gradient">Usługi</span></h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Kompleksowe usługi malarskie dla Ciebie i Twojej firmy</p>
-    </div>
-    
-    <div class="services-grid">
-      <div class="service-card" data-aos="fade-up" data-aos-delay="0">
-        <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
-        <h3>Malowanie mieszkań</h3>
-        <p>Kompleksowe malowanie ścian i sufitów w mieszkaniach. Szybko i bez bałaganu.</p>
-        <div class="service-hover"></div>
-      </div>
-      
-      <div class="service-card" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-icon"><i class="fas fa-home"></i></div>
-        <h3>Malowanie domów</h3>
-        <p>Malowanie domów jednorodzinnych – elewacje i wnętrza w najlepszych cenach.</p>
-        <div class="service-hover"></div>
-      </div>
-      
-      <div class="service-card" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-icon"><i class="fas fa-building"></i></div>
-        <h3>Malowanie biur</h3>
-        <p>Profesjonalne malowanie biur i lokali usługowych bez przestojów.</p>
-        <div class="service-hover"></div>
-      </div>
-      
-      <div class="service-card" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-icon"><i class="fas fa-grip-lines"></i></div>
-        <h3>Przygotowanie ścian</h3>
-        <p>Szpachlowanie, gruntowanie, wyrównywanie powierzchni przed malowaniem.</p>
-        <div class="service-hover"></div>
-      </div>
-      
-      <div class="service-card" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-icon"><i class="fas fa-sync-alt"></i></div>
-        <h3>Renowacja powierzchni</h3>
-        <p>Odświeżanie starych tynków, usuwanie farb, renowacja ścian.</p>
-        <div class="service-hover"></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- GALLERY SECTION -->
-<section class="gallery" id="gallery">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-badge">Nasze realizacje</span>
-      <h2 class="section-title">Galeria <span class="gradient">Prac</span></h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Zobacz metamorfozy wnętrz, które wykonaliśmy</p>
     </div>
   </div>
   
-  <div class="gallery-slider">
-    <div class="swiper gallerySwiper">
-      <div class="swiper-wrapper">
-        <!-- Salon -->
-        <div class="swiper-slide">
-          <div class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image: url('https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PRZED</span>
-              </div>
-              <div class="after" style="background-image: url('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Salon - Warszawa</h4>
-              <p>Pełna metamorfoza</p>
-            </div>
-          </div>
+  <!-- Kuchnia -->
+  <div class="swiper-slide">
+    <div class="gallery-card">
+      <div class="before-after">
+        <div class="before" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PRZED</span>
         </div>
-        
-        <!-- Kuchnia -->
-        <div class="swiper-slide">
-          <div class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PRZED</span>
-              </div>
-              <div class="after" style="background-image: url('https://images.unsplash.com/photo-1556911220-e15b29be8c8f?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Kuchnia - Kraków</h4>
-              <p>Nowoczesny styl</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Sypialnia -->
-        <div class="swiper-slide">
-          <div class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PRZED</span>
-              </div>
-              <div class="after" style="background-image: url('https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Sypialnia - Wrocław</h4>
-              <p>Przytulna atmosfera</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Przedpokój -->
-        <div class="swiper-slide">
-          <div class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PRZED</span>
-              </div>
-              <div class="after" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&sat=-100&bright=10&cache=1'); background-size: cover; background-position: center;">
-                <span>PO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Przedpokój - Gdańsk</h4>
-              <p>Funkcjonalna przestrzeń</p>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Łazienka -->
-        <div class="swiper-slide">
-          <div class="gallery-card">
-            <div class="before-after">
-              <div class="before" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
-                <span>PRZED</span>
-              </div>
-              <div class="after" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&sat=-100&bright=15&cache=1'); background-size: cover; background-position: center;">
-                <span>PO</span>
-              </div>
-            </div>
-            <div class="gallery-info">
-              <h4>Łazienka - Poznań</h4>
-              <p>Świeży wygląd</p>
-            </div>
-          </div>
+        <div class="after" style="background-image: url('https://images.unsplash.com/photo-1556911220-bff31c812dba?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PO</span>
         </div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-  </div>
-  
-  <div class="container">
-    <div class="gallery-btn">
-      <button class="btn btn-secondary" id="moreGalleryBtn"><i class="fas fa-images"></i> Zobacz więcej zdjęć</button>
-    </div>
-  </div>
-</section>
-
-<!-- OPINIONS SECTION -->
-<section class="opinions" id="opinions">
-  <div class="container">
-    <div class="section-header" data-aos="fade-up">
-      <span class="section-badge">Opinie klientów</span>
-      <h2 class="section-title">Co mówią <span class="gradient">nasi klienci</span></h2>
-      <div class="section-divider"></div>
-      <p class="section-subtitle">Ponad 500 zadowolonych klientów</p>
+      <div class="gallery-info">
+        <h4>Kuchnia - Kraków</h4>
+        <p>Nowoczesny styl</p>
+      </div>
     </div>
   </div>
   
-  <div class="opinions-slider">
-    <div class="swiper opinionsSwiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="opinion-card">
-            <div class="stars">★★★★★</div>
-            <p class="opinion-text">"Świetny kontakt, terminowość i dokładność. Efekt przerósł nasze oczekiwania! Polecam każdemu."</p>
-            <div class="opinion-author">
-              <i class="fas fa-user-circle"></i>
-              <div><h4>Marcin W.</h4><span>Warszawa</span></div>
-            </div>
-          </div>
+  <!-- Sypialnia -->
+  <div class="swiper-slide">
+    <div class="gallery-card">
+      <div class="before-after">
+        <div class="before" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PRZED</span>
         </div>
-        <div class="swiper-slide">
-          <div class="opinion-card">
-            <div class="stars">★★★★★</div>
-            <p class="opinion-text">"Zleciliśmy malowanie całego domu i jesteśmy bardzo zadowoleni. Profesjonalne przygotowanie, staranne wykończenie."</p>
-            <div class="opinion-author">
-              <i class="fas fa-user-circle"></i>
-              <div><h4>Tomasz P.</h4><span>Piaseczno</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="opinion-card">
-            <div class="stars">★★★★★</div>
-            <p class="opinion-text">"Szybka wycena, konkurencyjna cena, a przede wszystkim perfekcyjnie wykonana praca. Czysto, schludnie i terminowo."</p>
-            <div class="opinion-author">
-              <i class="fas fa-user-circle"></i>
-              <div><h4>Anna K.</h4><span>Warszawa</span></div>
-            </div>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="opinion-card">
-            <div class="stars">★★★★★</div>
-            <p class="opinion-text">"Bardzo profesjonalna firma. Malowanie wykonane szybko i starannie. Cena również bardzo atrakcyjna."</p>
-            <div class="opinion-author">
-              <i class="fas fa-user-circle"></i>
-              <div><h4>Katarzyna N.</h4><span>Piaseczno</span></div>
-            </div>
-          </div>
+        <div class="after" style="background-image: url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PO</span>
         </div>
       </div>
-    </div>
-    <div class="swiper-button-next opinions-next"></div>
-    <div class="swiper-button-prev opinions-prev"></div>
-  </div>
-</section>
-
-<!-- CONTACT SECTION -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-grid">
-      <div class="contact-info" data-aos="fade-right">
-        <span class="section-badge">Kontakt</span>
-        <h2 class="section-title">Skontaktuj <span class="gradient">się z nami</span></h2>
-        <div class="section-divider left"></div>
-        
-        <div class="contact-details">
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
-            <div><h4>Telefon</h4><a href="tel:+48730208853">+48 730 208 853</a></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
-            <div><h4>Email</h4><a href="mailto:Taniemalowaniepiaseczno@gmail.com">Taniemalowaniepiaseczno@gmail.com</a></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-clock"></i></div>
-            <div><h4>Godziny pracy</h4><p>Pon-Pt: 7:00-20:00<br>Sob-Nd: 8:00-16:00</p></div>
-          </div>
-          <div class="contact-item">
-            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
-            <div><h4>Obszar działania</h4><p>Piaseczno, Warszawa i okolice</p></div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="contact-form" data-aos="fade-left">
-        <div class="form-container">
-          <h3>Bezpłatna wycena</h3>
-          <p>Wypełnij formularz, oddzwonimy w ciągu 30 minut</p>
-          
-          <form id="mainForm">
-            <div class="input-group">
-              <input type="text" id="userName" required>
-              <label>Imię i nazwisko</label>
-              <span class="input-line"></span>
-            </div>
-            
-            <div class="input-group">
-              <input type="tel" id="userPhone" required>
-              <label>Numer telefonu</label>
-              <span class="input-line"></span>
-            </div>
-            
-            <div class="input-group">
-              <textarea id="userDesc" rows="3"></textarea>
-              <label>Opis prac</label>
-              <span class="input-line"></span>
-            </div>
-            
-            <div class="file-upload">
-              <label class="upload-btn">
-                <i class="fas fa-cloud-upload-alt"></i> Załącz zdjęcia (max 5)
-                <input type="file" id="userFiles" multiple accept="image/*" hidden>
-              </label>
-              <div class="file-list" id="fileList">Nie wybrano plików</div>
-            </div>
-            
-            <button type="submit" class="btn btn-primary btn-full">
-              <i class="fas fa-paper-plane"></i> Wyślij zapytanie
-            </button>
-            
-            <div id="formStatus" class="form-status"></div>
-          </form>
-        </div>
+      <div class="gallery-info">
+        <h4>Sypialnia - Wrocław</h4>
+        <p>Przytulna atmosfera</p>
       </div>
     </div>
   </div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">
-        <i class="fas fa-paint-brush"></i>
-        <div>Tanie Malowanie<span>Mieszkań i Domów</span></div>
+  
+  <!-- Przedpokój -->
+  <div class="swiper-slide">
+    <div class="gallery-card">
+      <div class="before-after">
+        <div class="before" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PRZED</span>
+        </div>
+        <div class="after" style="background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PO</span>
+        </div>
       </div>
-      <div class="footer-links">
-        <a href="#home">Home</a>
-        <a href="#services">Usługi</a>
-        <a href="#gallery">Galeria</a>
-        <a href="#opinions">Opinie</a>
-        <a href="#contact">Kontakt</a>
-      </div>
-      <div class="footer-copy">
-        <p>&copy; 2025 Tanie Malowanie. Wszelkie prawa zastrzeżone.</p>
+      <div class="gallery-info">
+        <h4>Przedpokój - Gdańsk</h4>
+        <p>Funkcjonalna przestrzeń</p>
       </div>
     </div>
   </div>
-</footer>
-
-<!-- TOAST -->
-<div class="toast" id="toast"></div>
-
-<!-- ADMIN MODAL -->
-<div class="admin-modal" id="adminModal">
-  <div class="admin-modal-content">
-    <div class="admin-modal-header">
-      <h3><i class="fas fa-envelope"></i> Zapytania od klientów</h3>
-      <button class="close-modal">&times;</button>
-    </div>
-    <div class="admin-modal-body" id="adminMessages">
-      <p style="text-align:center; color:#94a3b8; padding:40px;">Brak zapytań</p>
-    </div>
-    <div class="admin-modal-footer">
-      <button class="btn-clear" id="clearMsgs">Wyczyść wszystkie</button>
-      <button class="btn-refresh" id="refreshMsgs">Odśwież</button>
+  
+  <!-- Łazienka -->
+  <div class="swiper-slide">
+    <div class="gallery-card">
+      <div class="before-after">
+        <div class="before" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PRZED</span>
+        </div>
+        <div class="after" style="background-image: url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600&h=400&fit=crop&cache=1'); background-size: cover; background-position: center;">
+          <span>PO</span>
+        </div>
+      </div>
+      <div class="gallery-info">
+        <h4>Łazienka - Poznań</h4>
+        <p>Świeży wygląd</p>
+      </div>
     </div>
   </div>
 </div>
-
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script src="script.js"></script>
-</body>
-</html>
