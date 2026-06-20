@@ -161,22 +161,26 @@ const opinionsSwiper = new Swiper('.opinionsSwiper', {
 AOS.init({ duration: 800, once: true, offset: 50 });
 
 // ============================================================
-// ========== ADMIN SYSTEM (IP UKRYTY) ==========
+// ========== ADMIN SYSTEM - IP ZASZYTY W KODZIE ==========
 // ============================================================
+
+// 🔐 TWOJ IP - ZASZYTY NA STAŁE (NIE MOŻNA ZMIENIĆ PRZEZ UŻYTKOWNIKA)
+const ALLOWED_IP = '46.205.203.179'; // ← TWÓJ IP ZASZYTY W KODZIE
 
 const ADMIN_PASSWORD = 'T9#vK2!mQ7@xL4$p';
 let isAdminLogged = false;
 let userIP = '';
-let allowedIP = '';
 let clickCount = 0;
 let clickTimer = null;
 
-// ========== ПОЛУЧАЕМ IP ПОЛЬЗОВАТЕЛЯ ==========
+// ========== POBIERAMY IP UŻYTKOWNIKA ==========
 async function getUserIP() {
   try {
     const response = await fetch('https://api.ipify.org?format=json');
     const data = await response.json();
     userIP = data.ip;
+    console.log('🔍 Twój IP:', userIP);
+    console.log('🔐 Dozwolony IP:', ALLOWED_IP);
     return userIP;
   } catch (error) {
     userIP = 'unknown';
@@ -184,68 +188,22 @@ async function getUserIP() {
   }
 }
 
-// ========== ЗАГРУЗКА СОХРАНЁННОГО IP ==========
-function loadAllowedIP() {
-  const saved = localStorage.getItem('admin_allowed_ip');
-  if (saved) {
-    allowedIP = saved;
-    return true;
-  }
-  return false;
-}
-
-// ========== СОХРАНЕНИЕ IP ==========
-function saveAllowedIP(ip) {
-  allowedIP = ip;
-  localStorage.setItem('admin_allowed_ip', ip);
-}
-
-// ========== ПРОВЕРКА IP ==========
+// ========== SPRAWDZAMY IP ==========
 function isIPAllowed() {
-  if (!allowedIP) return false;
   if (userIP === 'unknown') {
+    // Jeśli nie udało się pobrać IP - sprawdzamy czy to localhost
     return window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
   }
-  return userIP === allowedIP;
+  return userIP === ALLOWED_IP;
 }
 
-// ========== ПЕРВЫЙ ЗАПУСК - ЗАПРОС IP ==========
-async function checkFirstRun() {
-  // Ждём получения IP
-  await getUserIP();
-  
-  // Если IP не сохранён - запрашиваем
-  if (!loadAllowedIP()) {
-    // Показываем окно с предложением ввести IP
-    const userInput = prompt(
-      '🔐 Pierwsze uruchomienie!\n\n' +
-      'Aby zabezpieczyć panel administratora, wprowadź swój adres IP.\n' +
-      'Możesz go sprawdzić na: https://api.ipify.org\n\n' +
-      'Twój obecny IP: ' + userIP + '\n\n' +
-      'Wprowadź IP (lub zostaw puste, aby użyć obecnego):'
-    );
-    
-    let ipToSave = userInput ? userInput.trim() : userIP;
-    
-    if (ipToSave && ipToSave.length > 0) {
-      saveAllowedIP(ipToSave);
-      showToast('✅ IP zapisane', 'Twój IP został zabezpieczony');
-      console.log('✅ IP zapisane (ukryte)');
-    } else {
-      // Jeśli użytkownik nic nie wpisał - używamy localhost
-      saveAllowedIP('localhost');
-      showToast('⚠️ Tryb lokalny', 'Panel admina działa tylko na localhost');
-    }
-  }
-}
-
-// ========== КЛИКИ ПО СТОПКЕ (5 раз) ==========
+// ========== KLIKNIĘCIA W STOPKĘ (5 razy) ==========
 const footer = document.querySelector('.footer');
 if (footer) {
   footer.addEventListener('click', async (e) => {
     if (e.target.closest('a')) return;
     
-    // Если IP ещё не получен - получаем
+    // Jeśli IP jeszcze nie pobrany - pobieramy
     if (!userIP) {
       await getUserIP();
     }
@@ -257,13 +215,15 @@ if (footer) {
     if (clickCount >= 5) {
       clickCount = 0;
       
-      // ========== ПРОВЕРКА IP ==========
+      // ========== SPRAWDZAMY IP ==========
       if (!isIPAllowed()) {
         showToast('⛔ Dostęp zabroniony', 'Twój IP nie ma uprawnień do panelu admina');
+        console.log('⛔ Nieautoryzowany IP:', userIP);
+        console.log('✅ Dozwolony IP:', ALLOWED_IP);
         return;
       }
       
-      // ========== ЗАПРОС ПАРОЛЯ ==========
+      // ========== PROSIMY O HASŁO ==========
       if (!isAdminLogged) {
         const pwd = prompt('🔐 Wprowadź hasło administratora:');
         if (pwd === ADMIN_PASSWORD) {
@@ -282,7 +242,7 @@ if (footer) {
   });
 }
 
-// ========== MESSAGES SYSTEM ==========
+// ========== SYSTEM WIADOMOŚCI ==========
 let messages = JSON.parse(localStorage.getItem('tanie_malowanie_messages') || '[]');
 
 function saveMessages() {
@@ -340,7 +300,7 @@ function showToast(title, message) {
   setTimeout(() => toast.classList.remove('show'), 4000);
 }
 
-// ========== ADMIN MODAL CONTROLS ==========
+// ========== STEROWANIE MODAL ADMINA ==========
 const closeModal = document.querySelector('.close-modal');
 const clearMsgs = document.getElementById('clearMsgs');
 const refreshMsgs = document.getElementById('refreshMsgs');
@@ -376,7 +336,7 @@ if (refreshMsgs) {
   });
 }
 
-// ========== FORM HANDLER ==========
+// ========== OBSŁUGA FORMULARZA ==========
 const form = document.getElementById('mainForm');
 const formStatus = document.getElementById('formStatus');
 const fileInput = document.getElementById('userFiles');
@@ -423,7 +383,7 @@ if (form) {
   });
 }
 
-// ========== SMOOTH SCROLL ==========
+// ========== PŁYNNE PRZEWIJANIE ==========
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function(e) {
     e.preventDefault();
@@ -434,7 +394,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-// ========== OPEN FORM BUTTON ==========
+// ========== PRZYCISKI ==========
 document.getElementById('openFormBtn')?.addEventListener('click', () => {
   document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
 });
@@ -443,13 +403,11 @@ document.getElementById('moreGalleryBtn')?.addEventListener('click', () => {
   gallerySwiper.slideNext();
 });
 
-// ========== INIT ==========
+// ========== START ==========
 renderAdminMessages();
+getUserIP();
 
-// Запускаем проверку при загрузке
-(async function init() {
-  await checkFirstRun();
-  console.log('✅ Strona Tanie Malowanie załadowana!');
-  console.log('🔑 Admin: kliknij 5 razy w stopkę');
-  console.log('🔐 Twój IP jest chroniony i nie jest widoczny w kodzie');
-})();
+console.log('✅ Strona Tanie Malowanie załadowana!');
+console.log('🔑 Admin: kliknij 5 razy w stopkę');
+console.log('🔐 Tylko autoryzowany IP może otworzyć panel');
+console.log('🛡️ Twój IP jest zaszyty w kodzie i nie jest pytany przy starcie');
